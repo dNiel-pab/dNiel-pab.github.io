@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video - tutube</title>
+  <style>
+    /*  Estilos generales */
+    body {
+      background-color:rgb(240, 240, 240);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Barra superior */
+    header {
+      background-color:rgb(220, 148, 103);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      color: white;
+    }
+
+    header img {
+      width: 120px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      margin-left: 40px;
+    }
+
+    .search-bar input {
+      width: 60%;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    .search-bar button {
+      background-color: rgb(240, 240, 240);
+      cursor: pointer;
+    }
+
+    /* Contenedor principal del video */
+    .video-container {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    video {
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+    }
+
+    /* Sección debajo del video */
+    .video-info {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    .video-info h2 {
+      margin-bottom: 10px;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      border: none;
+      padding: 8px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      color:rgb(223, 223, 223);
+      transition: 0.3s;
+    }
+
+    .like {
+      background-color: rgb(28, 30, 151);
+    }
+
+    .dislike {
+      background-color: rgb(211, 12, 12);
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+    }
+
+    .activo {
+      background-color: #00c851 !important;
+    }
+
+    /*  Recomendaciones al costado */
+    .otros-videos{
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .mini {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .mini:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Barra -->
+  <header>
+    <a href="Untitled-2.html">
+      <img src="img.png" alt="Logo YouTube">
+    </a>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar videos...">
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <!--  Video principal -->
+  <section class="video-container">
+    <video src="video2.mp4" width="900" height="500" controls></video>
+  </section>
+
+  <!--  Info y botones -->
+  <div class="video-info">
+    <h2>Mi primer dme tu cosita a a dame tu cosita hay toma  XDDD</h2>
+    <p>Publicado por EL YUPI BOSS</p>
+
+    <div class="botones">
+      <button class="btn like">👍MEGUSTA MUCHISIMO :O <span>0</span></button>
+      <button class="btn dislike">👎NA NO ME GUSTA Y SOY FAN DE KUO:/ <span>0</span></button>
+    </div>
+  </div>
+
+  <!-- videos -->
+  <section class="otros-videos">
+    <a href="Untitled-3.1.html" >
+      <img src="img3.png" class="mini" alt="Video recomendado 1">
+    </a>
+
+    <a href="Untitled-3.html" >
+      <img src="img2.png" class="mini" alt="Video recomendado 2">
+    </a>
+    <a href="Untitled-3.2.html" >
+      <img src="img5.png" class="mini" alt="Video recomendado 2">
+    </a>
+  </section>
+
+  <!-- Script de likes -->
+  <script>
+    const likeBtn = document.querySelector('.like');
+    const dislikeBtn = document.querySelector('.dislike');
+    const likeCount = likeBtn.querySelector('span');
+    const dislikeCount = dislikeBtn.querySelector('span');
+
+    let likes = 0;
+    let dislikes = 0;
+
+    likeBtn.addEventListener('click', () => {
+      likes++;
+      likeCount.textContent = likes;
+      likeBtn.classList.add('activo');
+      dislikeBtn.classList.remove('activo');
+    });
+
+    dislikeBtn.addEventListener('click', () => {
+      dislikes++;
+      dislikeCount.textContent = dislikes;
+      dislikeBtn.classList.add('activo');
+      likeBtn.classList.remove('activo');
+    });
+  </script>
+
+</body>
+</html>
